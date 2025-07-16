@@ -11,23 +11,51 @@ public class Kiosk {
         this.menuItems = menuItems;
     }
 
+    int menuNumber;
+    int featureNumber;
+
     public void start() {
+        // 선택한 메뉴 출력
+        label:
+        while (true) {
+            System.out.println("[  SHACKSAHCK BURGER  ]");
+            System.out.println("[1] Burgers");
+            System.out.println("[2] Drink");
+            System.out.println("[3] Side Menu");
+            System.out.println("[0] 종료");
+
+            // 기능 선택
+            featureNumber = sc.nextInt();
+            switch (featureNumber) {
+                case 1:
+                    hamburgerMenu();
+                case 2:
+                    drinkMenu();
+                    break;
+                case 3:
+                    sideMenu();
+                    break;
+                case 0:
+                    break label;
+            }
+        }
+    }
+
+    public void hamburgerMenu() {
         // 메뉴 번호용 변수
-        int menuNumber = 1;
+        menuNumber = 1;
 
         // 버거 메뉴 상단
-        System.out.println("[ SHACKSHACK MENU ]");
+        System.out.println("[  HamBurger Menu  ]");
 
         // 햄버거 메뉴
         for (MenuItem menuItem : menuItems) {
             System.out.println("[" + menuNumber + "]" + menuItem.getName() + "  |  " + menuItem.getPrice() + "  |  " + menuItem.getExplain());
             menuNumber++;
         }
-        System.out.println("[0] 종료");
+        System.out.println("[0] 뒤로가기");
 
         // 기능 선택
-
-        int featureNumber;
         // 선택한 메뉴 출력
         while (true) {
             try {
@@ -52,5 +80,14 @@ public class Kiosk {
             }
 
         }
+    }
+
+    public void drinkMenu() {
+        menuNumber = 1;
+        System.out.println("[  Drink Menu  ]");
+    }
+
+    public void sideMenu() {
+        menuNumber = 1;
     }
 }

@@ -1,6 +1,7 @@
 package kiosk;
 
 public class MenuItem {
+
     private final String name;
     private final String price;
     private final String explain;
