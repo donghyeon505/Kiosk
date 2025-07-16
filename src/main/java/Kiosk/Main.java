@@ -1,40 +1,56 @@
 package Kiosk;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
+        // 스캐너 객체 생성
         Scanner sc = new Scanner(System.in);
 
-        // 메뉴 출력 (하드코딩)
+        // 메뉴 객체 생성
+        MenuItem firstMenu = new MenuItem(" ShackBurger", "W 6.9", "토마토, 양상추, 쉑소스가 토핑된 치즈버거");
+        MenuItem secondMenu = new MenuItem(" SmokeBurger", "W 8.9", "베이컨, 체리 페퍼에 쉑소그가 토핑된 치즈버거");
+        MenuItem thirdMenu = new MenuItem(" CheeseBurger", "W 6.9", "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거");
+        MenuItem fourthMenu = new MenuItem(" HamBurger", "W 5.4", "비프패티를 기반으로 야채가 들어간 기본버거");
+
+        List<MenuItem> menuItems = new ArrayList<>();
+
+        menuItems.add(firstMenu);
+        menuItems.add(secondMenu);
+        menuItems.add(thirdMenu);
+        menuItems.add(fourthMenu);
+
+        // 메뉴 번호용 변수
+        int menuNumber = 1;
+
+        // 버거 메뉴 상단
         System.out.println("[ SHACKSHACK MENU ]");
-        System.out.println("[1] ShackBurger    | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
-        System.out.println("[2] SmokeBurger    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
-        System.out.println("[3] CheeseBurger   | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거");
-        System.out.println("[4] HamBurger      | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거");
+
+        // 햄버거 메뉴
+        for (MenuItem menuItem : menuItems) {
+            System.out.println("[" + menuNumber + "]" + menuItem.getName() + "  |  " + menuItem.getPrice() + "  |  " + menuItem.getExplain());
+            menuNumber++;
+        }
         System.out.println("[0] 종료");
 
-        String featureNumber = sc.nextLine();
+        // 기능 선택
+        int featureNumber = sc.nextInt();
 
-        // 메뉴 선택 부분 (하드코딩)
-        switch (featureNumber) {
-            case "1":
-                System.out.println("\n선택한 메뉴 :  ShackBurger    | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
-                break;
-            case "2":
-                System.out.println("\n선택한 메뉴 :  SmokeBurger    | W 8.9 | 베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
-                break;
-            case "3":
-                System.out.println("\n선택한 메뉴 :  CheeseBurger   | W 6.9 | 포테이토 번과 비프패티, 치즈가 토핑된 치즈버거");
-                break;
-            case "4":
-                System.out.println("\n선택한 메뉴 :  HamBurger      | W 5.4 | 비프패티를 기반으로 야채가 들어간 기본버거");
-                break;
-            case "0":
-                System.out.println("\n프로그램을 종료합니다.");
-                break;
-            default:
-                System.out.println("\n잘못된 입력입니다.");
+        // 선택한 메뉴 출력
+        // 0 입력시 즉시 종료, 다른 값 입력시 메뉴를 같이 출력
+        if (featureNumber == 0) {
+            System.out.println("프로그램을 종료합니다");
+        } else {
+            for (MenuItem menuItem : menuItems) {
+                // 인덱스와 기능 선택란의 숫자를 비교해서 해당 리스트만 반환
+                if (menuItems.indexOf(menuItem) == featureNumber - 1) {
+                    System.out.println("프로그램을 종료합니다");
+                    System.out.println("선택한 메뉴 : " + menuItem.getName() + "  |  " + menuItem.getPrice() + "  |  " + menuItem.getExplain());
+                }
+            }
         }
     }
 }
