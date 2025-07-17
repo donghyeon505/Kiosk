@@ -4,29 +4,31 @@ import java.util.List;
 
 public class Menu {
 
-    private final List<MenuItem> drinkMenu;
-    private final List<MenuItem> hamburgerMenu;
-    private final List<MenuItem> sideMenu;
+    private final List<MenuItem> allMenus;
+    private final String category;
 
     // 생성자
-    public Menu(List<MenuItem> hamburgerMenu, List<MenuItem> drinkMenu, List<MenuItem> sideMenu) {
-        this.hamburgerMenu = hamburgerMenu;
-        this.drinkMenu = drinkMenu;
-        this.sideMenu = sideMenu;
+    public Menu(String Category, List<MenuItem> allMenus) {
+        this.category = Category;
+        this.allMenus = allMenus;
     }
 
-    // 햄버거 메뉴 getter
-    public List<MenuItem> getHamburgerMenu() {
-        return hamburgerMenu;
+    public MenuItem getMenu(int index) {
+        if (index >= 0 && index < allMenus.size()) {
+            return allMenus.get(index);
+        }
+        return null;
     }
 
-    // 드링크 메뉴 게터
-    public List<MenuItem> getDrinkMenu() {
-        return drinkMenu;
+    public void printMenu() {
+        for (int i = 0; i < allMenus.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + allMenus.get(i));
+        }
+        System.out.println("[0] 뒤로가기");
     }
 
-    // 사이드 메뉴 getter
-    public List<MenuItem> getSideMenu() {
-        return sideMenu;
+    public String getCategory() {
+        return category;
     }
+
 }
