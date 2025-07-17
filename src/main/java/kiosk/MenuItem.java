@@ -13,16 +13,8 @@ public class MenuItem {
         this.explain = explain;
     }
 
-    // 게터 메서드
-    public String getName() {
-        return name;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public String getExplain() {
-        return explain;
+    @Override
+    public String toString() {
+        return name + " | " + price + " | " + explain;
     }
 }
