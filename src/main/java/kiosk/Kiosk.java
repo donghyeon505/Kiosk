@@ -73,6 +73,7 @@ public class Kiosk {
                         // 인덱스와 기능 선택란의 숫자를 비교해서 해당 리스트만 반환
                         if (burgerMenu.indexOf(menuItem) == featureNumber - 1) {
                             System.out.println("선택한 메뉴 : " + menuItem.getName() + "  |  " + menuItem.getPrice() + "  |  " + menuItem.getExplain());
+                            break;
                         }
                     }
                 } else {
@@ -114,6 +115,7 @@ public class Kiosk {
                         // 인덱스와 기능 선택란의 숫자를 비교해서 해당 리스트만 반환
                         if (drinkMenu.indexOf(menuItem) == featureNumber - 1) {
                             System.out.println("선택한 메뉴 : " + menuItem.getName() + "  |  " + menuItem.getPrice() + "  |  " + menuItem.getExplain());
+                            break;
                         }
                     }
                 } else {
@@ -151,6 +153,7 @@ public class Kiosk {
                         // 인덱스와 기능 선택란의 숫자를 비교해서 해당 리스트만 반환
                         if (sideMenu.indexOf(menuItem) == featureNumber - 1) {
                             System.out.println("선택한 메뉴 : " + menuItem.getName() + "  |  " + menuItem.getPrice() + "  |  " + menuItem.getExplain());
+                            break;
                         }
                     }
                 } else {
