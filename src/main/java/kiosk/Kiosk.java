@@ -20,7 +20,7 @@ public class Kiosk {
         while (true) {
 
             // 메뉴 번호용 변수
-            int MenuNumber = 0;
+            int menuNumber = 0;
 
             // 메뉴 상단
             System.out.println("[  SHACKSHACK Burger  ]");
@@ -28,7 +28,7 @@ public class Kiosk {
             // 메뉴 출력
             for (int i = 0; i < allMenus.size(); i++) {
                 System.out.println("[" + (i + 1) + "] " + allMenus.get(i).getCategory());
-                MenuNumber = i + 1;
+                menuNumber = i + 1;
             }
 
             // 메뉴 하단
@@ -38,8 +38,8 @@ public class Kiosk {
             List<MenuItem> shoppingList = shopping.getShop();
             if (!shoppingList.isEmpty()) {
                 System.out.println("\n[  Order Menu  ]");
-                System.out.println("[" + (MenuNumber + 1) + "] Orders  | 장바구니를 확인 후 주문합니다.");
-                System.out.println("[" + (MenuNumber + 2) + "] Cancel  | 진행중인 주문을 취소합니다.");
+                System.out.println("[" + (menuNumber + 1) + "] Orders  | 장바구니를 확인 후 주문합니다.");
+                System.out.println("[" + (menuNumber + 2) + "] Cancel  | 진행중인 주문을 취소합니다.");
             }
 
             // 입력 오류 처리
@@ -53,9 +53,9 @@ public class Kiosk {
                     viewMenu();
                 } else if (featureNumber == 0) {
                     break;
-                } else if (!shoppingList.isEmpty() && featureNumber == MenuNumber + 1) {
+                } else if (!shoppingList.isEmpty() && featureNumber == menuNumber + 1) {
                     order();
-                } else if (!shoppingList.isEmpty() && featureNumber == MenuNumber + 2) {
+                } else if (!shoppingList.isEmpty() && featureNumber == menuNumber + 2) {
                     shopping.clearShop();
                     System.out.println("취소되었습니다\n");
                 } else {
