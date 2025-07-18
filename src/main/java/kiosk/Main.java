@@ -14,7 +14,7 @@ public class Main {
                 new MenuItem("HamBurger", "W 5.4", "비프패티를 기반으로 야채가 들어간 기본버거")
         ));
         // 드링크 메뉴
-        List<MenuItem> Drink = new ArrayList<>(List.of(
+        List<MenuItem> drink = new ArrayList<>(List.of(
                 new MenuItem("Lemonade", "W 5.3", "매장에서 직접 만드는 상콤한 레몬에이드"),
                 new MenuItem("IcedTea", "W 4.3", "직접 유기농 홍차를 우려낸 아이스티"),
                 new MenuItem("FountainSoda", "W 3.8", "탄산음료 코카콜라, 스프라이트, 환타, 제로콜라"),
@@ -30,7 +30,7 @@ public class Main {
 
         List<Menu> menus = new ArrayList<>(List.of());
         menus.add(new Menu("Hamburger Menu", burger));
-        menus.add(new Menu("Drink Menu", Drink));
+        menus.add(new Menu("Drink Menu", drink));
         menus.add(new Menu("Side Menu", sideMenu));
 
         Kiosk kiosk = new Kiosk(menus);

@@ -41,7 +41,7 @@ public class Kiosk {
     public void viewMenu() {
         if (featureNumber >= 1 && featureNumber <= allMenus.size()) {
             Menu select = allMenus.get(featureNumber - 1);
-            System.out.println("[  " + select.getCategory() + "  ]");
+            System.out.println("\n[  " + select.getCategory() + "  ]");
             select.printMenu();
 
             int selectNumber = sc.nextInt();
