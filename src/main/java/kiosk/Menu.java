@@ -34,4 +34,9 @@ public class Menu {
         return category;
     }
 
+    // 메뉴 개수 반환 메서드
+    public int getMenuSize() {
+        return allMenus.size();
+    }
+
 }

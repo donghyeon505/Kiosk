@@ -25,15 +25,14 @@ public class Shopping {
     }
 
     // 리스트에서 총 금액 계산해주는 메서드
-    public void totalPrice() {
+    public double totalPrice() {
         // 금액 변수 초기화
         Double price = 0.0;
         // 목록에 있는 금액 합산
         for (MenuItem menuItem : shop) {
             price += menuItem.getPrice();
         }
-        // 총 금액 출력
-        System.out.print("W " + price);
+        return price;
     }
 
     // 리스트 초기화 메서드
