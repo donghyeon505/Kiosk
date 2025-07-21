@@ -129,10 +129,10 @@ public class Kiosk {
 
             // 총 금액
             double totalPrice = shopping.totalPrice();
-            System.out.println("W " + totalPrice);
+            System.out.printf("W " + "%.1f", totalPrice);
 
             // 입력
-            System.out.println("\n1.주문        2.메뉴판");
+            System.out.println("\n\n1.주문        2.메뉴판");
             int orderNumber = sc.nextInt();
 
             // 입력 구분
@@ -156,8 +156,7 @@ public class Kiosk {
                 }
 
                 // 주문완료 메세지
-                System.out.print("\n주문이 완료되었습니다. 금액은 W ");
-                System.out.printf("%.1f", discountTotal);
+                System.out.printf("\n주문이 완료되었습니다. 금액은 W " + "%.1f", discountTotal);
                 System.out.println(" 입니다.\n");
                 shopping.clearShop();
                 break;

@@ -1,7 +1,9 @@
 package kiosk;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Shopping {
 
@@ -19,8 +21,14 @@ public class Shopping {
 
     // 리스트 나열 메서드
     public void viewShop() {
+        Map<MenuItem, Integer> shopMap = new HashMap<>();
+
         for (MenuItem menuItem : shop) {
-            System.out.println(menuItem);
+            shopMap.put(menuItem, shopMap.getOrDefault(menuItem, 0) + 1);
+        }
+
+        for (Map.Entry<MenuItem, Integer> entry : shopMap.entrySet()) {
+            System.out.println(entry.getKey() + " | 수량 : " + entry.getValue());
         }
     }
 
