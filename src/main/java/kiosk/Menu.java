@@ -1,6 +1,7 @@
 package kiosk;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Menu {
 
@@ -23,9 +24,8 @@ public class Menu {
 
     // 해당 카테고리의 메뉴들 출력 메서드
     public void printMenu() {
-        for (int i = 0; i < allMenus.size(); i++) {
-            System.out.println("[" + (i + 1) + "] " + allMenus.get(i));
-        }
+        IntStream.range(0, allMenus.size())
+                .forEach(i -> System.out.println("[" + (i + 1) + "] " + allMenus.get(i)));
         System.out.println("[0] 뒤로가기");
     }
 
