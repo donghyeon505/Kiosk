@@ -8,7 +8,7 @@ import java.util.Map;
 public class Shopping {
 
     private final List<MenuItem> shop = new ArrayList<>();
-
+    private List<MenuItem> removeList = new ArrayList<>();
     // 생성자
     public void addShop(MenuItem menuItem) {
         shop.add(menuItem);
@@ -41,6 +41,16 @@ public class Shopping {
             price += menuItem.getPrice();
         }
         return price;
+    }
+
+    public void removeShopList() {
+        removeList = shop.stream()
+                .distinct()
+                .toList();
+
+        for (int i = 0; i < removeList.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + removeList.get(i));
+        }
     }
 
     // 리스트 초기화 메서드

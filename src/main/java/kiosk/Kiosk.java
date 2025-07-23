@@ -18,7 +18,6 @@ public class Kiosk {
 
         // 선택한 메뉴 출력
         while (true) {
-
             // 메뉴 번호용 변수
             int menuNumber = 0;
 
@@ -132,7 +131,7 @@ public class Kiosk {
             System.out.printf("W " + "%.1f", totalPrice);
 
             // 입력
-            System.out.println("\n\n1.주문        2.메뉴판");
+            System.out.println("\n\n1.주문      2.메뉴판      3.메뉴빼기");
             int orderNumber = sc.nextInt();
 
             // 입력 구분
@@ -163,6 +162,8 @@ public class Kiosk {
             } else if (orderNumber == 2) {
                 System.out.println("메뉴판으로 이동합니다.\n");
                 break;
+            } else if (orderNumber == 3) {
+                shopping.removeShopList();
             } else {
                 System.out.println("잘못된 입력입니다.\n");
             }
