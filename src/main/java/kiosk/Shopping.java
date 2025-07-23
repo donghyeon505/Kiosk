@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Shopping {
 
-    private final List<MenuItem> shop = new ArrayList<>();
+    private List<MenuItem> shop = new ArrayList<>();
     private List<MenuItem> removeList = new ArrayList<>();
     // 생성자
     public void addShop(MenuItem menuItem) {
@@ -43,6 +43,7 @@ public class Shopping {
         return price;
     }
 
+    // 중복제거된 리스트 나열 메서드
     public void removeShopList() {
         removeList = shop.stream()
                 .distinct()
@@ -51,6 +52,15 @@ public class Shopping {
         for (int i = 0; i < removeList.size(); i++) {
             System.out.println("[" + (i + 1) + "] " + removeList.get(i));
         }
+    }
+
+    // 메뉴 빼기 메서드
+    public void removeShop (int select) {
+        MenuItem remove = removeList.get(select - 1);
+
+        shop = shop.stream()
+                .filter(item -> !item.equals(remove))
+                .toList();
     }
 
     // 리스트 초기화 메서드

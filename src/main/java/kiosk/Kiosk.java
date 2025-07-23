@@ -131,7 +131,7 @@ public class Kiosk {
             System.out.printf("W " + "%.1f", totalPrice);
 
             // 입력
-            System.out.println("\n\n1.주문      2.메뉴판      3.메뉴빼기");
+            System.out.println("\n\n1.주문      2.메뉴판      3.메뉴제거");
             int orderNumber = sc.nextInt();
 
             // 입력 구분
@@ -163,7 +163,13 @@ public class Kiosk {
                 System.out.println("메뉴판으로 이동합니다.\n");
                 break;
             } else if (orderNumber == 3) {
+                System.out.println("[  Orders  ]");
                 shopping.removeShopList();
+                System.out.println("\n제거할 메뉴의 번호를 입력해주세요.");
+                int removeSelect = sc.nextInt();
+                shopping.removeShop(removeSelect);
+
+                System.out.println("\n해당 메뉴를 제거했습니다.");
             } else {
                 System.out.println("잘못된 입력입니다.\n");
             }
