@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Shopping {
 
@@ -47,7 +48,7 @@ public class Shopping {
     public void removeShopList() {
         removeList = shop.stream()
                 .distinct()
-                .toList();
+                .collect(Collectors.toList());
 
         for (int i = 0; i < removeList.size(); i++) {
             System.out.println("[" + (i + 1) + "] " + removeList.get(i));
@@ -60,7 +61,7 @@ public class Shopping {
 
         shop = shop.stream()
                 .filter(item -> !item.equals(remove))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     // 리스트 초기화 메서드

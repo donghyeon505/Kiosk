@@ -157,18 +157,27 @@ public class Kiosk {
                 // 주문완료 메세지
                 System.out.printf("\n주문이 완료되었습니다. 금액은 W " + "%.1f", discountTotal);
                 System.out.println(" 입니다.\n");
+
+                // 주문리스트 제거후 반복문 종료
                 shopping.clearShop();
                 break;
             } else if (orderNumber == 2) {
                 System.out.println("메뉴판으로 이동합니다.\n");
                 break;
             } else if (orderNumber == 3) {
+
+                // 메뉴 제거 리스트
                 System.out.println("[  Orders  ]");
+
+                // 중복 제거된 리스트 나열 메서드
                 shopping.removeShopList();
+
+                // 제거할 메뉴 입력
                 System.out.println("\n제거할 메뉴의 번호를 입력해주세요.");
                 int removeSelect = sc.nextInt();
-                shopping.removeShop(removeSelect);
 
+                // 메뉴 제거
+                shopping.removeShop(removeSelect);
                 System.out.println("\n해당 메뉴를 제거했습니다.");
             } else {
                 System.out.println("잘못된 입력입니다.\n");
